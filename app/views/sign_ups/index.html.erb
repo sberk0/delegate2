@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all sign ups
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new sign up
+    </h2>
+
+    <form action="/insert_sign_up" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="task_id_box">
+          Task
+        </label>
+
+        <input type="text" id="task_id_box" name="query_task_id">
+      </div>
+
+      <button>
+        Create sign up
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Task
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_sign_ups.each do |a_sign_up| %>
+      <tr>
+        <td>
+          <%= a_sign_up.id %>
+        </td>
+
+        <td>
+          <%= a_sign_up.user_id %>
+        </td>
+
+        <td>
+          <%= a_sign_up.task_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_sign_up.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_sign_up.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/sign_ups/<%= a_sign_up.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

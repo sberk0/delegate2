@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Sign up resource:
+
+  # CREATE
+  post("/insert_sign_up", { :controller => "sign_ups", :action => "create" })
+          
+  # READ
+  get("/sign_ups", { :controller => "sign_ups", :action => "index" })
+  
+  get("/sign_ups/:path_id", { :controller => "sign_ups", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_sign_up/:path_id", { :controller => "sign_ups", :action => "update" })
+  
+  # DELETE
+  get("/delete_sign_up/:path_id", { :controller => "sign_ups", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Status resource:
 
   # CREATE

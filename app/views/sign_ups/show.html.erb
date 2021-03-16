@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Sign up #<%= @the_sign_up.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/sign_ups">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_sign_up/<%= @the_sign_up.id %>">
+          Delete sign up
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_sign_up.user_id %>
+      </dd>
+
+      <dt>
+        Task
+      </dt>
+      <dd>
+        <%= @the_sign_up.task_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_sign_up.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_sign_up.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit sign up
+    </h2>
+
+    <form action="/modify_sign_up/<%= @the_sign_up.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_sign_up.user_id %>">
+      </div>
+
+      <div>
+        <label for="task_id_box">
+          Task
+        </label>
+
+        <input type="text" id="task_id_box" name="query_task_id" value="<%= @the_sign_up.task_id %>">
+      </div>
+
+      <button>
+        Update sign up
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
