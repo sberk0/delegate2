@@ -12,4 +12,13 @@
 #  user_id     :integer
 #
 class Task < ApplicationRecord
+  belongs_to :status
+  belongs_to :event, counter_cache: true
+
+  has_many  :sign_ups, dependent: :destroy
+  has_many :users, through: :sign_ups, source: :user
+
+  validates :due_date, presence: true
+  validates :description, presence: true
+  validates :description, uniqueness: true
 end

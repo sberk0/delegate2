@@ -13,4 +13,10 @@ class User < ApplicationRecord
   validates :email, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true
   has_secure_password
+
+  has_many  :sign_ups, dependent: :destroy
+  has_many :tasks, through: :sign_ups, source: :task
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
 end

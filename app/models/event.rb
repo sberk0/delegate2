@@ -9,4 +9,8 @@
 #  updated_at  :datetime         not null
 #
 class Event < ApplicationRecord
+  has_many  :tasks, dependent: :destroy
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
 end

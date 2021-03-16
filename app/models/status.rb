@@ -8,4 +8,5 @@
 #  updated_at :datetime         not null
 #
 class Status < ApplicationRecord
+  has_many  :tasks, dependent: :nullify
 end

@@ -9,4 +9,6 @@
 #  user_id    :integer
 #
 class SignUp < ApplicationRecord
+  belongs_to :user
+  belongs_to :task
 end
