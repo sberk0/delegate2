@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Task #<%= @the_task.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/tasks">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_task/<%= @the_task.id %>">
+          Delete task
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_task.description %>
+      </dd>
+
+      <dt>
+        Event
+      </dt>
+      <dd>
+        <%= @the_task.event_id %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_task.user_id %>
+      </dd>
+
+      <dt>
+        Due date
+      </dt>
+      <dd>
+        <%= @the_task.due_date %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_task.status_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_task.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_task.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit task
+    </h2>
+
+    <form action="/modify_task/<%= @the_task.id %>"  method="post" >
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description" value="<%= @the_task.description %>">
+      </div>
+
+      <div>
+        <label for="event_id_box">
+          Event
+        </label>
+
+        <input type="text" id="event_id_box" name="query_event_id" value="<%= @the_task.event_id %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_task.user_id %>">
+      </div>
+
+      <div>
+        <label for="due_date_box">
+          Due date
+        </label>
+
+        <input type="date" id="due_date_box" name="query_due_date" value="<%= @the_task.due_date %>">
+      </div>
+
+      <div>
+        <label for="status_id_box">
+          Status
+        </label>
+
+        <input type="text" id="status_id_box" name="query_status_id" value="<%= @the_task.status_id %>">
+      </div>
+
+      <button>
+        Update task
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
