@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
 
   # Routes for the Sign up resource:
+  
+  # HOMEPAGE
+  get("/", { :controller => "events", :action => "index" })
 
   # CREATE
   post("/insert_sign_up", { :controller => "sign_ups", :action => "create" })
