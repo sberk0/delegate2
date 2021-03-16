@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Status #<%= @the_status.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/statuses">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_status/<%= @the_status.id %>">
+          Delete status
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_status.status %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_status.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_status.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit status
+    </h2>
+
+    <form action="/modify_status/<%= @the_status.id %>"  method="post" >
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_status.status %>">
+      </div>
+
+      <button>
+        Update status
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

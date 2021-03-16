@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Status resource:
+
+  # CREATE
+  post("/insert_status", { :controller => "statuses", :action => "create" })
+          
+  # READ
+  get("/statuses", { :controller => "statuses", :action => "index" })
+  
+  get("/statuses/:path_id", { :controller => "statuses", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_status/:path_id", { :controller => "statuses", :action => "update" })
+  
+  # DELETE
+  get("/delete_status/:path_id", { :controller => "statuses", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Task resource:
 
   # CREATE

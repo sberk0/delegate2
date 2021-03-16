@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all statuses
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new status
+    </h2>
+
+    <form action="/insert_status" method="post">
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status">
+      </div>
+
+      <button>
+        Create status
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_statuses.each do |a_status| %>
+      <tr>
+        <td>
+          <%= a_status.id %>
+        </td>
+
+        <td>
+          <%= a_status.status %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_status.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_status.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/statuses/<%= a_status.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
