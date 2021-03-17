@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Event #<%= @the_event.id %> details
+      <%= @the_event.name %> Tasks
     </h1>
 
     <div>
@@ -18,46 +18,13 @@
       </div>
     </div>
 
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_event.name %>
-      </dd>
-
-      <dt>
-        Tasks count
-      </dt>
-      <dd>
-        <%= @the_event.tasks_count %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_event.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_event.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
 <hr>
-
 
 <div>
   <div>
-    <h2>
+    <h4>
       Edit event
-    </h2>
+    </h4>
 
     <form action="/modify_event/<%= @the_event.id %>"  method="post" >
       <div>
@@ -68,14 +35,6 @@
         <input type="text" id="name_box" name="query_name" value="<%= @the_event.name %>">
       </div>
 
-      <div>
-        <label for="tasks_count_box">
-          Tasks count
-        </label>
-
-        <input type="text" id="tasks_count_box" name="query_tasks_count" value="<%= @the_event.tasks_count %>">
-      </div>
-
       <button>
         Update event
       </button>
@@ -83,4 +42,53 @@
   </div>
 </div>
 
+<hr>
+
+  <div>
+    <h4>
+      Add task
+    </h4>
+      <form action="/insert_task" method="post">
+        <div>
+
+          <input type="hidden" id="event_id_box" name="query_event_id" value="<%= @the_event.id %>">
+        </div>
+
+        <div>
+          <label for="description_box">
+            Description
+          </label>
+
+          <input type="text" id="description_box" name="query_description">
+        </div>
+
+        <div>
+          <label for="user_id_box">
+            User
+          </label>
+
+          <input type="text" id="user_id_box" name="query_user_id">
+        </div>
+
+        <div>
+          <label for="due_date_box">
+            Due date
+          </label>
+
+          <input type="date" id="due_date_box" name="query_due_date">
+        </div>
+
+        <div>
+          <label for="status_id_box">
+            Status
+          </label>
+
+          <input type="text" id="status_id_box" name="query_status_id">
+        </div>
+
+        <button>
+          Create task
+        </button>
+      </form>
+  </div>
 <hr>

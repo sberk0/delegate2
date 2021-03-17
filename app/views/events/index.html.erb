@@ -1,40 +1,8 @@
 <div>
   <div>
     <h1>
-      List of all events
+      Events
     </h1>
-  </div>
-</div>
-
-<hr>
-
-<div>
-  <div>
-    <h2>
-      Add a new event
-    </h2>
-
-    <form action="/insert_event" method="post">
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name">
-      </div>
-
-      <div>
-        <label for="tasks_count_box">
-          Tasks count
-        </label>
-
-        <input type="text" id="tasks_count_box" name="query_tasks_count">
-      </div>
-
-      <button>
-        Create event
-      </button>
-    </form>
   </div>
 </div>
 
@@ -43,24 +11,13 @@
   <div>
     <table>
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Name
         </th>
 
         <th>
-          Tasks count
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
+          # of Tasks to Complete
         </th>
 
         <th>
@@ -69,9 +26,6 @@
 
       <% @list_of_events.each do |an_event| %>
       <tr>
-        <td>
-          <%= an_event.id %>
-        </td>
 
         <td>
           <%= an_event.name %>
@@ -79,13 +33,6 @@
 
         <td>
           <%= an_event.tasks_count %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(an_event.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_event.updated_at) %> ago
         </td>
 
         <td>
@@ -100,3 +47,27 @@
 </div>
 
 <hr>
+
+<hr>
+
+<div>
+  <div>
+    <h4>
+      Add a new event
+    </h4>
+
+    <form action="/insert_event" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <button>
+        Create event
+      </button>
+    </form>
+  </div>
+</div>

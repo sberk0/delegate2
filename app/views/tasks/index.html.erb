@@ -8,27 +8,99 @@
 
 <hr>
 
+<hr>
 <div>
   <div>
-    <h2>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Event
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Due date
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_tasks.each do |a_task| %>
+      <tr>
+        <td>
+          <%= a_task.id %>
+        </td>
+
+        <td>
+          <%= a_task.event.name %>
+        </td>
+
+        <td>
+          <%= a_task.description %>
+        </td>
+
+        <td>
+          <%= a_task.user_id %>
+        </td>
+
+        <td>
+          <%= a_task.due_date %>
+        </td>
+
+        <td>
+          <%= a_task.status_id %>
+        </td>
+
+        <td>
+          <a href="/tasks/<%= a_task.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h4>
       Add a new task
-    </h2>
+    </h4>
 
     <form action="/insert_task" method="post">
-      <div>
-        <label for="description_box">
-          Description
-        </label>
-
-        <input type="text" id="description_box" name="query_description">
-      </div>
-
       <div>
         <label for="event_id_box">
           Event
         </label>
 
         <input type="text" id="event_id_box" name="query_event_id">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <input type="text" id="description_box" name="query_description">
       </div>
 
       <div>
@@ -62,89 +134,4 @@
   </div>
 </div>
 
-<hr>
-<div>
-  <div>
-    <table>
-      <tr>
-        <th>
-          ID
-        </th>
 
-        <th>
-          Description
-        </th>
-
-        <th>
-          Event
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Due date
-        </th>
-
-        <th>
-          Status
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_tasks.each do |a_task| %>
-      <tr>
-        <td>
-          <%= a_task.id %>
-        </td>
-
-        <td>
-          <%= a_task.description %>
-        </td>
-
-        <td>
-          <%= a_task.event_id %>
-        </td>
-
-        <td>
-          <%= a_task.user_id %>
-        </td>
-
-        <td>
-          <%= a_task.due_date %>
-        </td>
-
-        <td>
-          <%= a_task.status_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_task.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_task.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/tasks/<%= a_task.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
-
-<hr>

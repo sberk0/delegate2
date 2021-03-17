@@ -21,4 +21,5 @@ class Task < ApplicationRecord
   validates :due_date, presence: true
   validates :description, presence: true
   validates :description, uniqueness: true
+  validates :event_id, presence: true
 end
