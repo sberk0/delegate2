@@ -14,6 +14,8 @@ class EventsController < ApplicationController
 
     @the_event = matching_events.at(0)
 
+    @tasks = @the_event.tasks
+
     render({ :template => "events/show.html.erb" })
   end
 

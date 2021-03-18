@@ -24,7 +24,7 @@ class SignUpsController < ApplicationController
 
     if the_sign_up.valid?
       the_sign_up.save
-      redirect_to("/sign_ups", { :notice => "Sign up created successfully." })
+      redirect_back({ fallback_location:"/events", notice: "Signed up successfully." })
     else
       redirect_to("/sign_ups", { :notice => "Sign up failed to create successfully." })
     end

@@ -4,6 +4,118 @@
       <%= @the_event.name %> Tasks
     </h1>
 
+    <table>
+      <tr>
+
+        <th>
+          Event
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Assignee
+        </th>
+
+        <th>
+          Due date
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @tasks.each do |a_task| %>
+      <tr>
+
+        <td>
+          <%= a_task.event.name %>
+        </td>
+
+        <td>
+          <%= a_task.description %>
+        </td>
+
+        <td>
+          <%= User.where(:id => a_task.sign_ups.pluck(:user_id)).pluck(:name).to_sentence %>
+        </td>
+
+        <td>
+          <%= a_task.due_date %>
+        </td>
+
+        <td>
+          <%= a_task.status %>
+        </td>
+
+        <td>
+          <a href="/tasks/<%= a_task.id %>">
+            Show details
+          </a>
+        </td>
+        <td>
+            <form action="/insert_sign_up" method="post">
+      <div>
+
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @current_user.id %>">
+      </div>
+
+      <div>
+
+        <input type="hidden" id="task_id_box" name="query_task_id" value="<%= a_task.id %>">
+      </div>
+
+      <button>
+        Sign up
+      </button>
+    </form>
+        </td>
+        <td>
+         <form action="/modify_task/<%= a_task.id %>"  method="post" >
+      <div>
+  
+        <input type="hidden" id="description_box" name="query_description" value="<%= a_task.description %>">
+      </div>
+
+      <div>
+
+        <input type="hidden" id="user_id_box" name="query_user_id" value="<%= a_task.user_id %>">
+      </div>
+
+      <div>
+        <input type="hidden" id="due_date_box" name="query_due_date" value="<%= a_task.due_date %>">
+      </div>
+
+      <div>
+        <input type="hidden" id="due_date_box" name="query_event_id" value="<%= a_task.event_id %>">
+      </div>
+
+      <div>
+        <label for="status_id_box">
+          Status
+        </label>
+        <select name="query_status_id" id="status_id_box">
+          <option value="Not Started">Not Started</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+      </div>
+
+      <button>
+        Update task
+      </button>
+    </form>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+
     <div>
       <div>
         <a href="/events">
@@ -68,11 +180,8 @@
         </div>
 
         <div>
-          <label for="user_id_box">
-            User
-          </label>
 
-          <input type="text" id="user_id_box" name="query_user_id">
+          <input type="hidden" id="user_id_box" name="query_user_id" value="current_user.id">
         </div>
 
         <div>
