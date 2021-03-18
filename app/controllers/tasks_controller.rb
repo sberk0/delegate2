@@ -21,7 +21,7 @@ class TasksController < ApplicationController
     the_task = Task.new
     the_task.description = params.fetch("query_description")
     the_task.event_id = params.fetch("query_event_id")
-    the_task.user_id = params.fetch("query_user_id")
+    the_task.user_id = @current_user.id
     the_task.due_date = params.fetch("query_due_date")
     the_task.status_id = params.fetch("query_status_id")
 

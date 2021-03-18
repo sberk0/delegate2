@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_03_16_224007) do
     t.integer "event_id"
     t.integer "user_id"
     t.date "due_date"
-    t.integer "status_id"
+    t.string "status_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
