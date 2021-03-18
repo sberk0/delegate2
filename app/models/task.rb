@@ -22,4 +22,5 @@ class Task < ApplicationRecord
   validates :description, presence: true
   validates :description, uniqueness: true
   validates :event_id, presence: true
+  validates :status_id, presence: true
 end
