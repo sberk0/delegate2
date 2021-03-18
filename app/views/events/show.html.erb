@@ -58,7 +58,6 @@
           <label for="description_box">
             Description
           </label>
-
           <input type="text" id="description_box" name="query_description">
         </div>
 
@@ -82,8 +81,11 @@
           <label for="status_id_box">
             Status
           </label>
-
-          <input type="text" id="status_id_box" name="query_status_id">
+          <select name="query_status_id" id="status_id_box">
+              <option value="Not Started">Not Started</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+          </select>
         </div>
 
         <button>

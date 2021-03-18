@@ -19,18 +19,12 @@
     </div>
 
     <dl>
-      <dt>
-        Description
-      </dt>
-      <dd>
-        <%= @the_task.description %>
-      </dd>
 
       <dt>
         Event
       </dt>
       <dd>
-        <%= @the_task.event_id %>
+        <%= @the_task.event.name %>
       </dd>
 
       <dt>
@@ -52,20 +46,6 @@
       </dt>
       <dd>
         <%= @the_task.status_id %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_task.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_task.updated_at) %> ago
       </dd>
     </dl>
   </div>
@@ -109,8 +89,11 @@
         <label for="status_id_box">
           Status
         </label>
-
-        <input type="text" id="status_id_box" name="query_status_id" value="<%= @the_task.status_id %>">
+        <select name="query_status_id" id="status_id_box">
+          <option value="Not Started">Not Started</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
       </div>
 
       <button>
