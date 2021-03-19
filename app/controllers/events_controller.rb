@@ -36,7 +36,6 @@ class EventsController < ApplicationController
     the_event = Event.where({ :id => the_id }).at(0)
 
     the_event.name = params.fetch("query_name")
-    the_event.tasks_count = params.fetch("query_tasks_count")
 
     if the_event.valid?
       the_event.save

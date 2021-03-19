@@ -4,6 +4,22 @@
       <%= @the_event.name %> Tasks
     </h1>
 
+    <div>
+      <div>
+        <a href="/events">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_event/<%= @the_event.id %>">
+          Delete event
+        </a>
+      </div>
+    </div>
+
+  <hr>
+
     <table>
       <tr>
 
@@ -55,12 +71,7 @@
         </td>
 
         <td>
-          <a href="/tasks/<%= a_task.id %>">
-            Show details
-          </a>
-        </td>
-        <td>
-            <form action="/insert_sign_up" method="post">
+    <form action="/insert_sign_up" method="post">
       <div>
 
         <input type="hidden" id="user_id_box" name="query_user_id" value="<%= @current_user.id %>">
@@ -115,26 +126,6 @@
       </tr>
       <% end %>
     </table>
-
-    <div>
-      <div>
-        <a href="/events">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_event/<%= @the_event.id %>">
-          Delete event
-        </a>
-      </div>
-
-      <div>
-        <a href="/sign_ups">
-          Sign up for a task
-        </a>
-      </div>
-    </div>
 
 <hr>
 
